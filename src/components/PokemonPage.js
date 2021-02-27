@@ -4,22 +4,10 @@ import PokemonForm from "./PokemonForm";
 import Search from "./Search";
 import { Container } from "semantic-ui-react";
 
-function PokemonPage({pokemon, setPokemon, setSearchQuery}) {
-    // const [searchQuery, setSearchQuery] = useState("")
+function PokemonPage({pokemon, setPokemon}) {
+    const [searchQuery, setSearchQuery] = useState("")
     // console.log(searchQuery)
-
-    // const pokeDex = pokemon.filter((poke) => {
-    //   const name = poke.name
-    //   return (
-        
-    //     console.log(name.includes(searchQuery)
-    //   )
-    // console.log(searchQuery.includes(poke.name))
-    
-    // console.log(poke.name)
-    // poke.name.includes(searchQuery)
-    // }
-    // )
+    const pokeDex = pokemon.filter((poke) => poke.name.includes(searchQuery))
     
 
   return (
@@ -30,7 +18,7 @@ function PokemonPage({pokemon, setPokemon, setSearchQuery}) {
       <br />
       <Search setSearchQuery = {setSearchQuery}/>
       <br />
-      <PokemonCollection pokemon={pokemon}/>
+      <PokemonCollection pokemon={pokeDex}/>
     </Container>
   );
 }
